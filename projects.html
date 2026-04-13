@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Ayush Joshi</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#98a0b3; --accent:#6ee7b7;
+      --glass:rgba(255,255,255,0.04)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Arial;color:#e6eef8;background:linear-gradient(180deg,#071022 0%, #08121a 60%);-webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{height:44px;width:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#5eead4);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:white}
+
+    h1{font-size:28px;margin:12px 0}
+    p.muted{color:var(--muted)}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
+    .project-card{background:var(--card);padding:0;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .project-card img{display:block;width:100%;height:180px;object-fit:cover}
+    .meta{padding:12px}
+    .meta h3{margin:0 0 6px 0}
+    .meta p{margin:0;color:var(--muted);font-size:14px}
+    .meta .actions{margin-top:12px;display:flex;gap:8px;justify-content:flex-end}
+    .btn{background:linear-gradient(90deg,#10b981,#34d399);border:none;padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer;color:#022}
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.06)}
+
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+    .modal{background:var(--card);max-width:800px;width:100%;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.05);box-shadow:0 10px 40px rgba(2,6,23,0.8)}
+    .modal .modal-grid{display:grid;grid-template-columns:1fr 360px;gap:16px}
+    .modal img{width:100%;height:260px;object-fit:cover;border-radius:8px}
+    .modal h2{margin:0}
+    .close{background:#111;border:none;color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer}
+    @media (max-width:900px){
+      .modal .modal-grid{grid-template-columns:1fr}
+      .modal img{height:200px}
+    }
+
+    footer{margin-top:28px;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo" style="display:flex; align-items:center; gap:12px;">
+  <div class="mark" style="display:flex; align-items:center; justify-content:center;">
+    <img src="ayush.jpeg.jpeg" alt="AJ" 
+         style="height:60px; width:60px; border-radius:8px; object-fit:cover;"
+         onerror="this.style.display='none'; this.parentElement.innerHTML='AJ';">
+  </div>
+  <div>
+    <div style="font-weight:800">Ayush Joshi</div>
+    <div style="font-size:12px;color:var(--muted)">Web / AI / Data Analytics</div>
+  </div>
+</div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html" style="color:white">Projects</a>
+        <a href="resume.html">Resume</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Selected Projects</h1>
+      <p class="muted">Click <strong>View</strong> on any project to read details and see an image.</p>
+
+      <div class="projects-grid">
+        <!-- AI Nurse -->
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1587502536263-3e92f57f8a2c?auto=format&fit=crop&w=800&q=80" alt="AI Nurse" />
+
+          <div class="meta">
+            <h3>AI Nurse (Hospital)</h3>
+            <p class="muted">AI-assisted nursing tools for monitoring and assisting patients in clinical settings.</p>
+            <div class="actions">
+              <button class="btn" data-project="nurse">View</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- AI Home -->
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="AI Home">
+          <div class="meta">
+            <h3>AI Home</h3>
+            <p class="muted">A smart-home assistant that automates tasks and helps users with daily routines and safety.</p>
+            <div class="actions">
+              <button class="btn" data-project="home">View</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Jarvis -->
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1581090700227-9f7d5e9bcad6?auto=format&fit=crop&w=800&q=80" alt="Jarvis">
+          <div class="meta">
+            <h3>Jarvis (Personal Assistant)</h3>
+            <p class="muted">A voice-activated assistant that performs searches, automations, and system control tasks.</p>
+            <div class="actions">
+              <button class="btn" data-project="jarvis">View</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <footer>© <span id="year"></span> Ayush Joshi — Built with ❤️</footer>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 id="modalTitle">Project</h2>
+        <button class="close" id="closeBtn">Close</button>
+      </div>
+      <div class="modal-grid" style="margin-top:12px">
+        <div>
+          <p id="modalDesc" class="muted"></p>
+        </div>
+        <div>
+          <img id="modalImg" src="" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Fill footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const projects = {
+      nurse: {
+        title: "AI Nurse (Hospital)",
+        desc: "An AI-assisted nursing system designed to support clinical staff. Key features include automated monitoring of vital signs, alerts for abnormal conditions, basic triage assistance, and recommendation support for routine care tasks. Built as a concept integrating sensor data ingestion, a predictive model for early warning signs, and a web-based dashboard so nurses and doctors can visualize patient trends in real time.",
+        img: "https://images.unsplash.com/photo-1580281657529-0b0f9f4c9f2b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder",
+        alt: "Nurse monitoring patient"
+      },
+      home: {
+        title: "AI Home",
+        desc: "Smart-home assistant that automates daily routines and improves safety. Features include voice interactions, schedule reminders, energy usage suggestions, remote device control, and simple anomaly detection for home safety (like smoke or water leak alerts). Implemented as a front-end prototype with simulated device APIs and a lightweight rules engine for automations.",
+        img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder",
+        alt: "Smart home interior"
+      },
+      jarvis: {
+        title: "Jarvis (Personal Assistant)",
+        desc: "Personal voice-activated assistant capable of performing web searches, opening applications, running simple automations, and responding to conversational queries. Built as a local prototype combining speech recognition, command parsing, and integration with system utilities. Intended as a developer-focused assistant for productivity and automations.",
+        img: "https://images.unsplash.com/photo-1581090700227-9f7d5e9bcad6?auto=format&fit=crop&w=800&q=80",
+        alt: "Voice assistant concept"
+      }
+    };
+
+    // Modal logic
+    const backdrop = document.getElementById('modalBackdrop');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementById('closeBtn');
+
+    document.querySelectorAll('.btn[data-project]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const key = btn.getAttribute('data-project');
+        const p = projects[key];
+        modalTitle.textContent = p.title;
+        modalDesc.textContent = p.desc;
+        modalImg.src = p.img;
+        modalImg.alt = p.alt;
+        backdrop.style.display = 'flex';
+        backdrop.setAttribute('aria-hidden','false');
+      });
+    });
+
+    function closeModal(){
+      backdrop.style.display = 'none';
+      backdrop.setAttribute('aria-hidden','true');
+    }
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>
